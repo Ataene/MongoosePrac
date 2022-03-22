@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
+    //Creating the Mongoose to connect with Compass local database.
 mongoose.connect("mongodb://127.0.0.1:27017/peopleDB", { useNewUrlParser: true });
 
 const peopleSchema = new mongoose.Schema({
-
     name: String,
     title: String,
     age: Number,
@@ -14,10 +14,10 @@ const peopleSchema = new mongoose.Schema({
     email: String
 });
 
+    //Creating a model for each type of Connection
 const People = mongoose.model("People", peopleSchema);
 
 const people = new People({
-
     name: "Emmanuel Kpot",
     title: "Petroleum Engineer",
     age: 33,
@@ -27,20 +27,18 @@ const people = new People({
 });
 
 const person = new People({
-
     name: "Ataene Ene",
     title: "Software Engineer",
     age: 33,
     Phone: 306-339-3978,
     email: "emmail@gmail.com",
     createdAt: Date()
-
-    
 });
 people.save();
 person.save();
 
 console.log(people);
 console.log(person);
+
 
 
